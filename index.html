@@ -77,15 +77,15 @@
     display: flex; align-items: center; gap: 10px;
   }
   .logo-mark {
-    width: 36px; height: 36px;
-    background: linear-gradient(135deg, var(--green), var(--green-mid));
+    width: 40px; height: 40px;
     border-radius: 12px;
-    display: grid; place-items: center;
-    color: white; font-size: 18px; font-weight: 800;
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--green) 35%, transparent);
+    display: block; object-fit: contain;
+    background: var(--bg-warm);
+    padding: 2px;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--primary) 35%, transparent);
     transform: rotate(-4deg);
   }
-  [data-theme="dark"] .logo-mark { background: linear-gradient(135deg, var(--mint), var(--green-mid)); color: var(--green-dark); }
+  [data-theme="dark"] .logo-mark { background: rgba(255,255,255,0.04); }
   .nav-links { display: flex; gap: 24px; align-items: center; }
   .nav-links a { color: var(--text-soft); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
   .nav-links a:hover { color: var(--primary); }
@@ -218,6 +218,12 @@
     display: flex; flex-direction: column; gap: 10px;
   }
   [data-theme="dark"] .phone-screen { background: var(--bg-card); }
+  .phone-screen.has-img { padding: 0; gap: 0; }
+  .phone-screen.has-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    border-radius: 34px;
+  }
   .phone-status {
     display: flex; justify-content: space-between;
     font-size: 11px; font-weight: 700; color: var(--text);
@@ -347,24 +353,35 @@
   .feature-content h3 { font-size: 32px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 14px; }
   .feature-content p { color: var(--text-soft); font-size: 16px; max-width: 460px; }
   .feature-mockup {
-    aspect-ratio: 4/3;
-    background: var(--bg-card);
-    border-radius: 32px;
-    border: 2px solid var(--border);
     display: grid; place-items: center;
-    box-shadow: 0 24px 60px var(--shadow);
-    overflow: hidden; position: relative;
-    padding: 32px;
+    position: relative;
+    padding: 24px 0;
   }
   .feature-mockup::before {
     content: ''; position: absolute; inset: 0;
     background: radial-gradient(circle at 30% 30%, var(--green-tint) 0%, transparent 60%),
                 radial-gradient(circle at 80% 80%, color-mix(in srgb, var(--peach) 20%, transparent) 0%, transparent 60%);
+    border-radius: 32px;
   }
-  .feature-mockup-content {
+  .feat-phone {
     position: relative; z-index: 1;
-    font-size: 84px; opacity: 0.85;
-    transform: rotate(-3deg);
+    width: 280px; aspect-ratio: 9/19.5;
+    background: var(--ink);
+    border-radius: 38px; padding: 7px;
+    box-shadow:
+      0 30px 70px var(--shadow-lg),
+      0 0 0 3px var(--primary),
+      0 0 0 4px color-mix(in srgb, var(--primary) 25%, transparent);
+    transform: rotate(-2deg);
+    transition: transform 0.4s;
+  }
+  [data-theme="dark"] .feat-phone { background: var(--text); }
+  .feature-row.reverse .feat-phone { transform: rotate(2deg); }
+  .feat-phone:hover { transform: rotate(0); }
+  .feat-phone img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    border-radius: 30px;
   }
 
   /* PREMIUM */
@@ -488,7 +505,7 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">
-      <span class="logo-mark">أ</span>
+      <img class="logo-mark" src="assets/logo.png" alt="">
       <span>أماكني</span>
     </a>
     <div class="nav-links">
@@ -532,27 +549,8 @@
       <div class="chaos-tile">🗒 <div>Keep<small>عنوان المطعم</small></div></div>
       <div class="phone-wrap">
         <div class="phone">
-          <div class="phone-screen">
-            <div class="phone-status"><span>9:41</span><span>●●●</span></div>
-            <div class="phone-greeting">صباح الفل ✨</div>
-            <div class="phone-title">أماكني</div>
-            <div class="phone-search">🔍 ابحث...</div>
-            <div class="place-row">
-              <div class="place-icon home">🏠</div>
-              <div class="place-info"><div class="place-name">بيت ماما</div><div class="place-meta">المعادي</div></div>
-            </div>
-            <div class="place-row">
-              <div class="place-icon doctor">🩺</div>
-              <div class="place-info"><div class="place-name">دكتور أحمد</div><div class="place-meta">مدينة نصر</div></div>
-            </div>
-            <div class="place-row">
-              <div class="place-icon cafe">☕</div>
-              <div class="place-info"><div class="place-name">كافيه المعادي</div><div class="place-meta">قريب من البيت</div></div>
-            </div>
-            <div class="place-row">
-              <div class="place-icon work">💼</div>
-              <div class="place-info"><div class="place-name">الشغل</div><div class="place-meta">التجمع الخامس</div></div>
-            </div>
+          <div class="phone-screen has-img">
+            <img src="assets/screenshots/01-home.png" alt="شاشة أماكني الرئيسية">
           </div>
         </div>
       </div>
@@ -620,11 +618,11 @@
         <h3>شارك من واتساب → احفظ في ثانية</h3>
         <p>أي لوكيشن بيتبعتلك، شيرها لـ أماكني وهيستخرج الإحداثيات والاسم تلقائيًا. خلاص بقى الـ copy/paste.</p>
       </div>
-      <div class="feature-mockup"><div class="feature-mockup-content">💬→📍</div></div>
+      <div class="feature-mockup"><div class="feat-phone"><img src="assets/screenshots/02-categories.png" alt="تصنيفات منظمة"></div></div>
     </div>
 
     <div class="feature-row reverse">
-      <div class="feature-mockup"><div class="feature-mockup-content">🎙</div></div>
+      <div class="feature-mockup"><div class="feat-phone"><img src="assets/screenshots/03-voice.png" alt="إدخال صوتي"></div></div>
       <div class="feature-content">
         <div class="feature-emoji-big">🎙</div>
         <h3>صوتك بالعربي</h3>
@@ -638,11 +636,11 @@
         <h3>اتجاهات بشرية</h3>
         <p>"بعد العمارة الخضرا، شمال". "تحت العمارة، الباب الأخير". اكتب الاتجاهات اللي بتفهمها أنت، مش الإحداثيات بس.</p>
       </div>
-      <div class="feature-mockup"><div class="feature-mockup-content">🧭</div></div>
+      <div class="feature-mockup"><div class="feat-phone"><img src="assets/screenshots/04-details.png" alt="تفاصيل المكان واتجاهات بشرية"></div></div>
     </div>
 
     <div class="feature-row reverse">
-      <div class="feature-mockup"><div class="feature-mockup-content">📍</div></div>
+      <div class="feature-mockup"><div class="feat-phone"><img src="assets/screenshots/05-maps.png" alt="افتح في أي تطبيق خرايط"></div></div>
       <div class="feature-content">
         <div class="feature-emoji-big">📍</div>
         <h3>افتح في أي تطبيق خرايط</h3>
@@ -710,7 +708,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">
-          <span class="logo-mark">أ</span>
+          <img class="logo-mark" src="assets/logo.png" alt="">
           <span>أماكني</span>
         </div>
         <p>كل أماكنك في مكان واحد. صنع في مصر 🇪🇬 بحب.</p>
