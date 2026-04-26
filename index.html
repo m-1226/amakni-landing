@@ -31,9 +31,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #FAFAF5;
-    --bg-card: #FFFFFF;
-    --bg-warm: #F4F4EF;
+    --bg: #FCF6EC;
+    --bg-card: #FFFCF6;
+    --bg-warm: #F4EBDA;
     --green: #154212;
     --green-mid: #3B6934;
     --green-dark: #002201;
@@ -45,13 +45,13 @@
     --peach: #FFA26A;
     --peach-soft: #FFDBC9;
     --tertiary-warm: #FFB68C;
-    --ink: #1A1C19;
-    --shadow: rgba(21, 66, 18, 0.1);
-    --shadow-lg: rgba(21, 66, 18, 0.18);
+    --ink: #2A1F12;
+    --shadow: rgba(110, 60, 20, 0.12);
+    --shadow-lg: rgba(110, 60, 20, 0.2);
     --text: var(--ink);
-    --text-soft: rgba(26, 28, 25, 0.7);
-    --text-faint: rgba(26, 28, 25, 0.45);
-    --border: rgba(21, 66, 18, 0.1);
+    --text-soft: rgba(42, 31, 18, 0.7);
+    --text-faint: rgba(42, 31, 18, 0.45);
+    --border: rgba(147, 75, 25, 0.14);
     --primary: var(--green);
     --accent: var(--peach);
     --accent-deep: var(--rust);
@@ -181,21 +181,18 @@
     margin-bottom: 36px; max-width: 620px;
     margin-inline: auto;
   }
+  .icon { width: 1em; height: 1em; stroke-width: 2; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
   .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
   .store-badge {
-    display: inline-flex; align-items: center; gap: 12px;
-    background: var(--ink); color: white;
-    padding: 14px 26px; border-radius: 16px;
-    text-decoration: none; transition: all 0.25s;
-    border: 2px solid var(--ink);
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border-radius: 14px;
   }
-  [data-theme="dark"] .store-badge { background: var(--text); color: var(--ink); border-color: var(--text); }
-  .store-badge:hover { transform: translateY(-3px) rotate(1deg); box-shadow: 0 16px 32px var(--shadow-lg); }
+  .store-badge svg { display: block; height: 60px; width: auto; }
+  .store-badge:hover { transform: translateY(-3px) rotate(1deg); box-shadow: 0 16px 36px var(--shadow-lg); }
   .store-badge:nth-child(2):hover { transform: translateY(-3px) rotate(-1deg); }
-  .store-badge .badge-icon { width: 26px; height: 26px; flex-shrink: 0; }
-  .store-badge .badge-text-small { font-size: 10px; opacity: 0.7; line-height: 1; }
-  .store-badge .badge-text-big { font-size: 15px; font-weight: 700; line-height: 1.2; margin-top: 2px; }
-  .store-badge.coming { opacity: 0.7; }
+  .store-badge.coming { opacity: 0.92; }
 
   /* HERO VISUAL */
   .hero-visual {
@@ -541,33 +538,50 @@
 <section class="hero">
   <div class="container">
     <div class="hero-eyebrow fade-up">
-      <span>🌿</span> منزلٌ واحد لكلّ مواقعك
+      <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;color:var(--mint);"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+      منزلٌ واحد لكلّ مواقعك
     </div>
     <h1 class="fade-up d1">كلّ مواقعك المهمّة، <em>في مكانٍ واحد</em>.</h1>
     <p class="hero-sub fade-up d2">
       لا مزيد من التنقّل بين محادثات واتساب، الملاحظات، ولقطات الشاشة. أماكني يجمع كلّ المواقع التي تحتاجها — مع تصنيفات، صور، واتجاهات بصوتك — ويفتحها في أيّ تطبيق خرائط بنقرة.
     </p>
     <div class="hero-ctas fade-up d3">
-      <a href="#" class="store-badge coming">
-        <svg class="badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-        <span><span class="badge-text-small">قريبًا على</span><br><span class="badge-text-big">App Store</span></span>
-      </a>
-      <a href="#" class="store-badge coming">
-        <svg class="badge-icon" viewBox="0 0 512 512" aria-hidden="true">
-          <path fill="#34A853" d="M325.3 234.3 104.4 39.5c-2.6-2.2-6.3-2-8.6.4-2.3 2.4-2.4 6.3-.2 8.7l145.8 158.7 83.9 27z"/>
-          <path fill="#FBBC04" d="M409.4 209.6 338 170.1l-12.7 64.2 12.7 42.6 71.4-39.5c11.6-6.4 11.6-23.2 0-29.6z"/>
-          <path fill="#EA4335" d="M325.3 234.3 95.6 48.6c-1-2.4-.7-5.5 1.2-7.4l243.5 195z"/>
-          <path fill="#4285F4" d="M325.3 234.3 95.6 423.4c-1 2.4-.7 5.5 1.2 7.4l243.5-195z"/>
+      <a href="#" class="store-badge coming" aria-label="Download on the App Store">
+        <svg viewBox="0 0 220 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="220" height="64" rx="11" fill="#000"/>
+          <rect x="0.5" y="0.5" width="219" height="63" rx="11" fill="none" stroke="#A6A6A6"/>
+          <g transform="translate(18 14)" fill="#fff">
+            <path d="M28.65 19.6c-.04-3.7 3.04-5.5 3.18-5.59-1.74-2.54-4.45-2.89-5.41-2.93-2.3-.23-4.5 1.36-5.66 1.36-1.18 0-2.97-1.33-4.89-1.3-2.51.04-4.85 1.46-6.14 3.7-2.62 4.55-.67 11.26 1.88 14.95 1.24 1.81 2.71 3.84 4.63 3.77 1.86-.07 2.56-1.2 4.81-1.2s2.88 1.2 4.83 1.16c2-.04 3.27-1.85 4.49-3.66 1.42-2.1 2-4.13 2.03-4.23-.05-.02-3.86-1.48-3.9-5.86z M24.83 8.45C25.85 7.21 26.54 5.49 26.35 3.78c-1.46.07-3.27 1-4.32 2.21-.95 1.07-1.78 2.83-1.55 4.51 1.64.13 3.32-.85 4.35-2.05z"/>
+          </g>
+          <g fill="#fff" font-family="-apple-system, Helvetica, Arial, sans-serif">
+            <text x="60" y="26" font-size="11" font-weight="400">Download on the</text>
+            <text x="60" y="49" font-size="22" font-weight="600" letter-spacing="-0.5">App Store</text>
+          </g>
         </svg>
-        <span><span class="badge-text-small">قريبًا على</span><br><span class="badge-text-big">Google Play</span></span>
+      </a>
+      <a href="#" class="store-badge coming" aria-label="Get it on Google Play">
+        <svg viewBox="0 0 220 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="220" height="64" rx="11" fill="#000"/>
+          <rect x="0.5" y="0.5" width="219" height="63" rx="11" fill="none" stroke="#A6A6A6"/>
+          <g transform="translate(18 16)">
+            <path fill="#34A853" d="M0 0v32l16-16z"/>
+            <path fill="#FBBC04" d="M16 16 0 32l24-14z"/>
+            <path fill="#EA4335" d="M0 0l16 16 8-7z"/>
+            <path fill="#4285F4" d="M16 16l8-7v14z"/>
+          </g>
+          <g fill="#fff" font-family="Roboto, Arial, sans-serif">
+            <text x="60" y="26" font-size="11" font-weight="400">GET IT ON</text>
+            <text x="60" y="49" font-size="22" font-weight="500" letter-spacing="-0.3">Google Play</text>
+          </g>
+        </svg>
       </a>
     </div>
 
     <div class="hero-visual fade-up d4">
-      <div class="chaos-tile">💬 <div>واتساب<small>لوكيشن من ماما</small></div></div>
-      <div class="chaos-tile">📝 <div>Notes<small>30.04, 31.23</small></div></div>
-      <div class="chaos-tile">📸 <div>Screenshot<small>IMG_2847</small></div></div>
-      <div class="chaos-tile">🗒 <div>Keep<small>عنوان المطعم</small></div></div>
+      <div class="chaos-tile"><svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;color:#25D366;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> <div>واتساب<small>لوكيشن من ماما</small></div></div>
+      <div class="chaos-tile"><svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;color:var(--peach);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg> <div>Notes<small>30.04, 31.23</small></div></div>
+      <div class="chaos-tile"><svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;color:var(--mint);"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <div>Screenshot<small>IMG_2847</small></div></div>
+      <div class="chaos-tile"><svg class="icon" viewBox="0 0 24 24" style="width:22px;height:22px;color:#FBBC04;"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/><path d="M15 3v6h6"/></svg> <div>Keep<small>عنوان المطعم</small></div></div>
       <div class="phone-wrap">
         <div class="phone">
           <div class="phone-screen has-img">
@@ -586,17 +600,17 @@
     <p class="section-sub">في كلّ مرّة تبحث فيها، تخسر دقائق ثمينة. تعود إلى محادثاتٍ قديمة، أو تسأل من أرسلَه، أو تتصفّح ألبومًا كاملًا من الصور. الحلّ في كلمة واحدة: تنظيم.</p>
     <div class="pain-grid">
       <div class="pain-card">
-        <div class="pain-emoji">💬</div>
+        <div class="pain-emoji"><svg class="icon" viewBox="0 0 24 24" style="width:56px;height:56px;color:var(--peach);"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <h3>واتساب لا ينتهي</h3>
         <p>تبحث عن موقع المطعم الذي زرته الشهر الماضي، فتغوص في محادثة عمرها أشهر. أرسلَه أحدُهم — لكن مَن؟ ومتى؟</p>
       </div>
       <div class="pain-card">
-        <div class="pain-emoji">📝</div>
+        <div class="pain-emoji"><svg class="icon" viewBox="0 0 24 24" style="width:56px;height:56px;color:var(--rust);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg></div>
         <h3>ملاحظات بلا معنى</h3>
         <p>إحداثيات منسوخة دون أسماء. تنظر إليها بعد أسابيع وتسأل نفسك: ما هذا أصلًا؟ وأين كان؟</p>
       </div>
       <div class="pain-card">
-        <div class="pain-emoji">📸</div>
+        <div class="pain-emoji"><svg class="icon" viewBox="0 0 24 24" style="width:56px;height:56px;color:var(--green-mid);"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div>
         <h3>صور مدفونة في الألبوم</h3>
         <p>لقطاتٌ من خرائط جوجل ضائعة بين آلاف الصور. لن تجدها حين تحتاجها فعلًا — وتعرف هذا جيّدًا.</p>
       </div>
@@ -635,7 +649,7 @@
 
     <div class="feature-row">
       <div class="feature-content">
-        <div class="feature-emoji-big">💬</div>
+        <div class="feature-emoji-big"><svg class="icon" viewBox="0 0 24 24" style="width:36px;height:36px;color:inherit;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <h3>شارك من واتساب — يُحفظ تلقائيًّا</h3>
         <p>أيّ موقع يصلك على واتساب، شاركه مع أماكني وسيستخرج الإحداثيات والاسم تلقائيًّا. لا نسخ ولا لصق — مجرّد مشاركة، فحفظ.</p>
       </div>
@@ -645,7 +659,7 @@
     <div class="feature-row reverse">
       <div class="feature-mockup"><div class="feat-phone"><img src="assets/screenshots/03-voice.png" alt="إدخال صوتي"></div></div>
       <div class="feature-content">
-        <div class="feature-emoji-big">🎙</div>
+        <div class="feature-emoji-big"><svg class="icon" viewBox="0 0 24 24" style="width:36px;height:36px;color:inherit;"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div>
         <h3>تحدَّث، نحن نسمعك</h3>
         <p>اضغط على المايكروفون وتحدّث. اسم المكان، الملاحظات، الاتجاهات — كلّها بصوتك، بالعربيّة أو الإنجليزيّة. أسرع من الكتابة، وأذكى منها.</p>
       </div>
@@ -653,7 +667,7 @@
 
     <div class="feature-row">
       <div class="feature-content">
-        <div class="feature-emoji-big">🧭</div>
+        <div class="feature-emoji-big"><svg class="icon" viewBox="0 0 24 24" style="width:36px;height:36px;color:inherit;"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
         <h3>اتجاهات بلغتك أنت</h3>
         <p>"بعد العمارة الخضراء، يسارًا". "أسفل العمارة، آخر باب". اكتب الاتجاهات كما تفهمها — لا الإحداثيات الجامدة وحدها.</p>
       </div>
@@ -663,7 +677,7 @@
     <div class="feature-row reverse">
       <div class="feature-mockup"><div class="feat-phone"><img src="assets/screenshots/05-maps.png" alt="افتح في أيّ تطبيق خرائط"></div></div>
       <div class="feature-content">
-        <div class="feature-emoji-big">📍</div>
+        <div class="feature-emoji-big"><svg class="icon" viewBox="0 0 24 24" style="width:36px;height:36px;color:inherit;"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3>افتح في أيّ تطبيق خرائط</h3>
         <p>خرائط جوجل، خرائط آبل، ويز، وحتّى أوبر للوصول. اختر ما يناسبك — وأماكني يأخذك إلى النهاية.</p>
       </div>
